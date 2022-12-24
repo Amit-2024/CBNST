@@ -12,15 +12,19 @@ int main()
     cin>>a>>b;
     float mid=0;
     int i=1;
-    while(abs(a-mid)>0.0001 || abs(b-mid)>0.0001)
+    while(1)
     {
         mid=(a+b)/2;
         cout<<"value->"<<mid<<" at iteration->"<<i<<endl;
-        if(fx(a)*fx(mid)<0)
-        b=mid;
-        else
-        a=mid;
-
+        
+        if(abs(a-mid)<=0.0001 || abs(b-mid)<=0.0001){
+            if(fx(a)*fx(mid)<0)
+            b=mid;
+            else
+            a=mid;
+        }
+        else 
+        break;
         i++;
     }
 }
